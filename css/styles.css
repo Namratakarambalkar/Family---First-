@@ -106,9 +106,11 @@ body{
 /* Mobile: avoid excessive blank space between hero and stats */
 @media (max-width: 767px){
   .hero{
-    min-height: auto;
+    min-height: 0;
+    height: auto;
     padding-top:120px;
   }
+
 
   .section-stats{
     padding-top:10px;
