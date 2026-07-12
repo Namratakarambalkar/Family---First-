@@ -97,9 +97,12 @@ async function submitToFirestore(formEl, statusEl) {
       }
       formEl.reset();
     } catch (err) {
-      console.error(err);
-      if (statusEl) statusEl.textContent = 'Something went wrong. Please try again.';
+      console.error("Firebase Error:", err);
+      console.error("Error Code:", err?.code);
+      console.error("Error Message:", err?.message);
+      if (statusEl) statusEl.textContent = err?.message || 'Something went wrong. Please try again.';
     }
+
   });
 }
 
