@@ -106,16 +106,20 @@ body{
 /* Mobile: avoid excessive blank space between hero and stats */
 @media (max-width: 767px){
   .hero{
-    min-height: 0;
-    height: auto;
-    padding-top:120px;
-    margin-bottom: 0;
+    min-height: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    padding-top:100px;
+    padding-bottom:40px;
+    margin:0;
+    overflow:visible;
   }
 
-  /* Ensure stats starts right after hero content on mobile */
-  .section{padding:0;}
+  /* Keep only reasonable spacing before stats */
+  .section{padding:72px 0;}
   .section-stats{padding-top:40px;}
 }
+
 
 
 .hero-glow{
