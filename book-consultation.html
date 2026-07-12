@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family First | Book Consultation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles-book-consultation.css" />
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="brand">
+        <img class="brand-logo" src="image/logo.jpeg" alt="Family First logo" />
+        <div class="brand-text">
+          <div class="brand-name">Family First</div>
+          <div class="brand-tag">Surgical &amp; Clinical Nutrition Care</div>
+        </div>
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <a class="menu-link" href="home.html">Home</a>
+        <a class="menu-link" href="about.html">About Us</a>
+        <a class="menu-link" href="team.html">Team</a>
+        <a class="menu-link" href="contact.html">Contact Us</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-gold" href="book-consultation.html" role="button">Book Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" aria-label="Book Consultation" style="padding-top:120px">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">BOOK CONSULTATION</div>
+          <h2>Let’s plan your nutrition support</h2>
+          <p class="muted">Fill in your details and we’ll reach out to schedule the right consultation.</p>
+        </div>
+
+        <form class="contact-form" id="bookForm" style="max-width:760px; margin:0 auto;">
+          <h3 class="form-title">Consultation Request</h3>
+
+          <label>
+            <span>Name</span>
+            <input name="name" type="text" placeholder="Your Name" required />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" placeholder="you@example.com" required />
+          </label>
+
+          <label>
+            <span>Phone</span>
+            <input name="phone" type="tel" placeholder="Your Phone" required />
+          </label>
+
+          <label>
+            <span>What do you need help with?</span>
+            <textarea name="message" rows="5" placeholder="Diabetes/PCOS/Thyroid/Kidney recovery or any other concern" required></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-gold btn-block">Submit</button>
+          <div class="form-status" id="bookStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+      <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-circle" aria-hidden="true">
+          <img class="footer-logo" src="image/logo.jpeg" alt="Family First logo" />
+        </div>
+        <div>
+          <div class="footer-name">Family First</div>
+          <div class="footer-tag">SURGICAL &amp; CLINICAL NUTRITION CARE</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-copy">© <span id="year"></span> Family First. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script>
+    (function () {
+      try {
+        const cfg = window.FIREBASE_CONFIG;
+        if (!cfg || !cfg.projectId) {
+          console.warn('Firebase config missing in firebase-config.js');
+          return;
+        }
+        // Initialize Firebase App
+        // eslint-disable-next-line no-undef
+        firebase.initializeApp(cfg);
+      } catch (err) {
+        console.error('Firebase initialization failed', err);
+      }
+    })();
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+

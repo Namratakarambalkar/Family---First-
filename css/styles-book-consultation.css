@@ -1,0 +1,56 @@
+/* Booking page specific styles */
+
+.book-hero{
+  padding-top:120px;
+}
+
+/* Reuse .contact-form layout but ensure spacing */
+#bookForm.contact-form{
+  background: rgba(20,28,77,.35);
+  border: 1px solid rgba(44,52,99,.65);
+  border-radius:24px;
+  padding:28px;
+}
+
+#bookForm label{
+  display:block;
+  margin:14px 0;
+}
+
+#bookForm label span{
+  display:block;
+  font-weight:600;
+  margin-bottom:8px;
+  color:var(--gold);
+}
+
+/* Inputs */
+#bookForm input,
+#bookForm textarea{
+  width:100%;
+  background: rgba(11,18,56,.35);
+  border:1px solid rgba(44,52,99,.8);
+  border-radius:14px;
+  padding:12px 14px;
+  color:var(--gold);
+  outline:none;
+}
+
+#bookForm input::placeholder,
+#bookForm textarea::placeholder{
+  color: rgba(168,168,168,.85);
+}
+
+#bookForm input:focus,
+#bookForm textarea:focus{
+  border-color: rgba(230,216,174,.9);
+  box-shadow: var(--shadow);
+}
+
+#bookStatus{
+  margin-top:14px;
+  min-height:22px;
+  color: var(--gold);
+  font-weight:600;
+}
+
