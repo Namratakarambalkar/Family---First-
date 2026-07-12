@@ -9,12 +9,12 @@
  */
 
 window.FIREBASE_CONFIG = {
-  // TODO: Paste firebaseConfig values from Firebase console
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyD140gUZ037avc33VuN5Yu-WFiEcot8adA",
+  authDomain: "family-first-4fbd6.firebaseapp.com",
+  projectId: "family-first-4fbd6",
+  storageBucket: "family-first-4fbd6.firebasestorage.app",
+  messagingSenderId: "880497211742",
+  appId: "1:880497211742:web:6c5ec360f39601b7e0b7cf"
 };
+
 
