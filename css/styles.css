@@ -109,13 +109,14 @@ body{
     min-height: 0;
     height: auto;
     padding-top:120px;
+    margin-bottom: 0;
   }
 
-
-  .section-stats{
-    padding-top:10px;
-  }
+  /* Ensure stats starts right after hero content on mobile */
+  .section{padding:0;}
+  .section-stats{padding-top:40px;}
 }
+
 
 .hero-glow{
   position:absolute; inset:-40px;
