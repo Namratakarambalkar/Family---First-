@@ -116,13 +116,20 @@ async function submitToFirestore(formEl, statusEl) {
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       };
 
-      await firebase.firestore().collection('book_consultations').add(payload);
+      // Debug: confirm Firestore instance and payload at runtime
+      const fs = firebase.firestore();
+      console.log('Firestore instance:', fs);
+      console.log('Submitting payload to book_consultations:', payload);
+
+      const docRef = await fs.collection('book_consultations').add(payload);
+      console.log('Firestore write success, docId:', docRef?.id);
 
       if (statusEl) {
         const name = payload.name || 'there';
         statusEl.textContent = `Thanks, ${name}! We will contact you shortly.`;
       }
       formEl.reset();
+
 
     } catch (err) {
       console.error("Firebase Error:", err);
