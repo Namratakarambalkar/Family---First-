@@ -67,19 +67,41 @@ const bookStatusEl = document.getElementById('bookStatus');
 
 async function submitToFirestore(formEl, statusEl) {
   if (!formEl) return;
-  if (!window.firebase || !firebase.firestore) {
-    // Firestore not available (Firebase not initialized or scripts blocked)
+  // Ensure firebase app is initialized (compat SDK)
+  try {
+    if (!window.firebase) {
+      bindFakeSubmit(formEl, statusEl);
+      return;
+    }
+
+    if (!firebase.apps || !firebase.apps.length) {
+      // firebase.initializeApp should have run from book-consultation.html
+      // but if it didn't, initialize using global FIREBASE_CONFIG.
+      const cfg = window.FIREBASE_CONFIG;
+      if (!cfg || !cfg.projectId) {
+        bindFakeSubmit(formEl, statusEl);
+        return;
+      }
+      firebase.initializeApp(cfg);
+    }
+
+    if (!firebase.firestore) {
+      bindFakeSubmit(formEl, statusEl);
+      return;
+    }
+
+    if (!firebase.firestore.FieldValue) {
+      bindFakeSubmit(formEl, statusEl);
+      return;
+    }
+  } catch (initErr) {
+    console.error('Firebase init check failed:', initErr);
     bindFakeSubmit(formEl, statusEl);
     return;
   }
-
-  if (!firebase.firestore.FieldValue) {
-    bindFakeSubmit(formEl, statusEl);
-    return;
-  }
-
 
   formEl.addEventListener('submit', async (e) => {
+
     e.preventDefault();
     if (statusEl) statusEl.textContent = 'Submitting...';
 
