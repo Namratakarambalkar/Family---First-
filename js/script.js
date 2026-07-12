@@ -108,16 +108,22 @@ async function submitToFirestore(formEl, statusEl) {
     try {
       const data = Object.fromEntries(new FormData(formEl).entries());
 
-      await firebase.firestore().collection('book_consultations').add({
-        ...data,
+      const payload = {
+        name: (data.name || '').trim(),
+        email: (data.email || '').trim(),
+        phone: (data.phone || '').trim(),
+        message: (data.message || '').trim(),
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
+      };
+
+      await firebase.firestore().collection('book_consultations').add(payload);
 
       if (statusEl) {
-        const name = (data.name || '').trim() || 'there';
-        statusEl.textContent = `Thanks, ${name}! Your consultation request is saved. We will contact you shortly.`;
+        const name = payload.name || 'there';
+        statusEl.textContent = `Thanks, ${name}! We will contact you shortly.`;
       }
       formEl.reset();
+
     } catch (err) {
       console.error("Firebase Error:", err);
       console.error("Error Code:", err?.code);
